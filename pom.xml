@@ -11,7 +11,7 @@
     <groupId>com.app</groupId>
     <artifactId>productshop-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>productshop-backend</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -45,7 +45,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
