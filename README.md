@@ -1,5 +1,3 @@
-# productshop-backend
-Demo my shop with Spring Boot
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
@@ -51,5 +49,5 @@ steps:
   with:
   app-name: 'productshop-api'
   slot-name: 'production'
-  publish-profile: ${{ secrets.AzureAppService_PublishProfile_b59d40085bd240a9b4b5e41b1b09a782 }}
+  publish-profile: ${{ secrets.AzureAppService_PublishProfile_d6c3701b1fe14e818d5cd7f1b7193a2a }}
   package: '*.jar'
