@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - productshop-api
+name: Build and deploy WAR app to Azure Web App - productshop-api
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: '${{ github.workspace }}/target/*.jar'
+        path: '${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -49,5 +49,5 @@ jobs:
       with:
         app-name: 'productshop-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d6c3701b1fe14e818d5cd7f1b7193a2a }}
-        package: '*.jar'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1f31941eba6348c3b81f450d52614075 }}
+        package: '*.war'
