@@ -49,5 +49,5 @@ jobs:
       with:
         app-name: 'productshop-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8025c77074ea4e2a8b288dde2aa6c4c8 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2a9de471377c423199ba81da6a7c4a1e }}
         package: '*.jar'
