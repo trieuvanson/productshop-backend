@@ -25,13 +25,16 @@ public class CategoriesController {
     private List<Categories> getCategories()  {
         return categoriesRepo.findAll();
     }
-    
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Categories> getCategory(@PathVariable Long id)    {
         Categories Category = categoriesRepo.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Category not exist " + id));
         return ResponseEntity.ok(Category);
     }
+
+
 
     @PostMapping("/")
     public Categories PostCategory(@RequestBody Categories Category) {
