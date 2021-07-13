@@ -28,6 +28,7 @@ public class CategoriesController {
 
 
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Categories> getCategory(@PathVariable Long id)    {
         Categories Category = categoriesRepo.findById(id).orElseThrow(() ->
