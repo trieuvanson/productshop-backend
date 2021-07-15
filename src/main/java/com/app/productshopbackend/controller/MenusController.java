@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/menus")
 public class MenusController {
@@ -49,6 +49,9 @@ public class MenusController {
         newMenu.setParent_id(Menu.getParent_id());
         newMenu.setPostion(Menu.getPostion());
         newMenu.setUpdate_at(new Date());
+
+
+
         Menus updateMenus = menusRepo.save(newMenu);
         return ResponseEntity.ok(updateMenus);
     }

@@ -15,7 +15,7 @@ import java.util.List;
 
 import static jdk.nashorn.internal.objects.NativeArray.forEach;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/")
 public class HomeController {
