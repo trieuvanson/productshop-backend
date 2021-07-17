@@ -68,4 +68,6 @@ public class CategoriesController {
         reponse.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(reponse);
     }
+
+
 }

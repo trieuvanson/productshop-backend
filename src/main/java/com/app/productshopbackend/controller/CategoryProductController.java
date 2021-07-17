@@ -1,18 +1,17 @@
 package com.app.productshopbackend.controller;
 
 
-
 import com.app.productshopbackend.exception.ResourceNotFoundException;
 import com.app.productshopbackend.model.CategoryProduct;
 import com.app.productshopbackend.repo.CategoryProductRepo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin("*")
 @RestController
@@ -22,12 +21,12 @@ public class CategoryProductController {
     CategoryProductRepo categoryProductRepo;
 
     @GetMapping("/")
-    private List<CategoryProduct> getAllCategoryProduct()  {
+    private List<CategoryProduct> getAllCategoryProduct() {
         return categoryProductRepo.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoryProduct> getCategoryProduct(@PathVariable Long id)    {
+    public ResponseEntity<CategoryProduct> getCategoryProduct(@PathVariable Long id) {
         CategoryProduct CategoryProduct = categoryProductRepo.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("CategoryProduct not exist " + id));
         return ResponseEntity.ok(CategoryProduct);
@@ -41,7 +40,7 @@ public class CategoryProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryProduct> PutCategoryProduct(@RequestBody CategoryProduct CategoryProduct, @PathVariable Long id)  {
+    public ResponseEntity<CategoryProduct> PutCategoryProduct(@RequestBody CategoryProduct CategoryProduct, @PathVariable Long id) {
         CategoryProduct newCategoryProduct = categoryProductRepo.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("CategoryProduct not exist " + id));
         newCategoryProduct.setCate_name(CategoryProduct.getCate_name());
@@ -54,12 +53,28 @@ public class CategoryProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteCategoryProduct(@PathVariable Long id)    {
+    public ResponseEntity<Map<String, Boolean>> deleteCategoryProduct(@PathVariable Long id) {
         CategoryProduct CategoryProduct = categoryProductRepo.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("CategoryProduct not exist " + id));
         categoryProductRepo.delete(CategoryProduct);
         Map<String, Boolean> reponse = new HashMap<>();
         reponse.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(reponse);
+    }
+
+    @GetMapping("/cateproduct")
+    public ResponseEntity<String> getCateProduct() throws Exception {
+        List<String[]> list = categoryProductRepo.getCateProduct();
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode cateProduct = mapper.createObjectNode();
+        String[] data = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            String[] s = list.get(i);
+            cateProduct.put("id", s[0]);
+            cateProduct.put("cateName", s[1]);
+            cateProduct.put("productName", s[2]);
+            data[i] = mapper.writeValueAsString(cateProduct);
+        }
+        return ResponseEntity.ok(Arrays.toString(data));
     }
 }
