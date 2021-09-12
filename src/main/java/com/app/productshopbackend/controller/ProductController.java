@@ -3,8 +3,8 @@ package com.app.productshopbackend.controller;
 
 
 import com.app.productshopbackend.exception.ResourceNotFoundException;
-import com.app.productshopbackend.model.Products;
-import com.app.productshopbackend.repo.ProductsRepo;
+import com.app.productshopbackend.model.Product;
+import com.app.productshopbackend.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,37 +17,36 @@ import java.util.Map;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/products")
-public class ProductsController {
+public class ProductController {
     @Autowired
-    ProductsRepo productsRepo;
+    ProductRepo productsRepo;
 
     @GetMapping("/")
-    private List<Products> getProducts()  {
+    private List<Product> getProducts()  {
         return productsRepo.findAll();
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Products> getProduct(@PathVariable Long id)    {
-        Products product = productsRepo.findById(id).orElseThrow(() ->
+    public ResponseEntity<Product> getProduct(@PathVariable Integer id)    {
+        Product product = productsRepo.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Product not exist " + id));
         return ResponseEntity.ok(product);
     }
 
     @PostMapping("/{id}")
-    public Products PostProduct(@RequestBody Products product) {
+    public Product PostProduct(@RequestBody Product product) {
         product.setCreate_at(new Date());
         product.setUpdate_at(new Date());
         return productsRepo.save(product);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Products> PutProduct(@RequestBody Products product, @PathVariable Long id)  {
-        Products newProduct = productsRepo.findById(id).orElseThrow(
+    public ResponseEntity<Product> PutProduct(@RequestBody Product product, @PathVariable Integer id)  {
+        Product newProduct = productsRepo.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Product not exist " + id));
         newProduct.setName(product.getName());
         newProduct.setBest_seller(product.getBest_seller());
         newProduct.setDescription(product.getDescription());
-        newProduct.setCate_id(product.getCate_id());
         newProduct.setRegular_price(product.getRegular_price());
         newProduct.setShort_desc(product.getShort_desc());
         newProduct.setFeatured(product.getFeatured());
@@ -55,13 +54,13 @@ public class ProductsController {
         newProduct.setSlug(product.getSlug());
         newProduct.setSale_price(product.getSale_price());
         newProduct.setUpdate_at(new Date());
-        Products updateProduct = productsRepo.save(newProduct);
+        Product updateProduct = productsRepo.save(newProduct);
         return ResponseEntity.ok(updateProduct);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteProduct(@PathVariable Long id)    {
-        Products product = productsRepo.findById(id).orElseThrow(
+    public ResponseEntity<Map<String, Boolean>> deleteProduct(@PathVariable Integer id)    {
+        Product product = productsRepo.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Product not exist " + id));
         productsRepo.delete(product);
         Map<String, Boolean> reponse = new HashMap<>();

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductImagesRepo extends JpaRepository<ProductImages, Long> {
 
-    @Query("select pi.image_url from ProductImages pi inner join Products p on pi.product_id = p.id where p.id = :pId")
+    @Query("select pi.image_url from ProductImages pi inner join Product p on pi.product_id = p.id where p.id = :pId")
     List<String> getProductImagesName(Long pId);
 
 }
