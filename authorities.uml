@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.authorities</OriginalElement>
+  <nodes>
+    <node x="524.0" y="643.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.authorities</node>
+    <node x="84.0" y="250.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_categories</node>
+    <node x="0.0" y="544.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.products</node>
+    <node x="253.875" y="937.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orderdetails</node>
+    <node x="-213.41176470588232" y="300.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.brands</node>
+    <node x="804.7665909362669" y="283.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.submitcontacts</node>
+    <node x="1.5" y="937.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_images</node>
+    <node x="370.25" y="195.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.users</node>
+    <node x="183.0" y="621.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.news</node>
+    <node x="988.1242377137391" y="283.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.slides</node>
+    <node x="546.25" y="283.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.roles</node>
+    <node x="348.0" y="632.0">e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orders</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orderdetails" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orders" relationship="REFERENCES">
+      <point x="33.25" y="-72.5" />
+      <point x="353.625" y="912.0" />
+      <point x="426.0" y="912.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orderdetails" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.products" relationship="REFERENCES">
+      <point x="-33.25" y="-72.5" />
+      <point x="287.125" y="912.0" />
+      <point x="81.5" y="912.0" />
+      <point x="0.0" y="171.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.authorities" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.users" relationship="REFERENCES">
+      <point x="-39.0" y="-72.5" />
+      <point x="563.0" y="519.0" />
+      <point x="448.25" y="519.0" />
+      <point x="0.0" y="149.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_categories" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.brands" relationship="REFERENCES">
+      <point x="0.0" y="-94.5" />
+      <point x="168.5" y="197.5" />
+      <point x="-140.91176470588232" y="197.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.news" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_categories" relationship="REFERENCES">
+      <point x="0.0" y="-94.5" />
+      <point x="255.5" y="519.0" />
+      <point x="168.5" y="519.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_images" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.products" relationship="REFERENCES">
+      <point x="0.0" y="-72.5" />
+      <point x="0.0" y="171.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.orders" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.users" relationship="REFERENCES">
+      <point x="0.0" y="-83.5" />
+      <point x="426.0" y="519.0" />
+      <point x="448.25" y="519.0" />
+      <point x="0.0" y="149.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.products" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.product_categories" relationship="REFERENCES">
+      <point x="0.0" y="-171.5" />
+      <point x="81.5" y="519.0" />
+      <point x="168.5" y="519.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.authorities" target="e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.roles" relationship="REFERENCES">
+      <point x="39.0" y="-72.5" />
+      <point x="641.0" y="519.0" />
+      <point x="618.75" y="519.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.85" showDependencies="false" x="496.4621848739499" y="651.4705882352941" />
+  <SelectedNodes>
+    <node>e2062f2e-0afb-4be3-a1f6-e98e7be3957f.TABLE:electronic-shop.brands</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
